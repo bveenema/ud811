@@ -1,6 +1,7 @@
 
 (function() {
   'use strict';
+  var localforage = require('localforage');
 
   var injectedForecast = {
     key: 'newyork',
@@ -77,11 +78,19 @@
   });
 
 
+
   /*****************************************************************************
    *
    * Methods to update/refresh the UI
    *
    ****************************************************************************/
+
+   // Checks IndexedDB for existing preferences
+   function getPreferences(){
+     console.log("Checking Prefereneces");
+     console.log("Localforage is: ", localforage);
+   };
+   getPreferences();
 
   // Toggles the visibility of the add new city dialog.
   app.toggleAddDialog = function(visible) {
